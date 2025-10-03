@@ -13,6 +13,9 @@ mrrFamily = 0 # MRR abonnement Family
 mrrStudent = 0 # MRR abonnement Student
 mrrPremium = 0 # MRR abonnement Premium
 country = []
+typeAccount = []
+PRICES = {"Free": 0.0, "Premium": 9.99, "Family": 14.99, 
+"Student": 4.99}
 
 #EXERCICE 1
 
@@ -73,17 +76,41 @@ for record in dataset:
 print (f"Nombre d'utilisateur non churned est de {noChurned}")
 
 for record in dataset:
-    if record['is_churned'] =='0' and record['country'] not in country :
+    if record['country'] not in country :
         country.append(record['country'])
 print (country)
 
+for record in dataset:
+    if record['subscription_type'] not in typeAccount :
+        typeAccount.append(record['subscription_type'])
+print (typeAccount)
+print("")
+
+
 for i in range(len(country)) :
-    mrrFree = 0
-    userNoChurnCountry = 0
-    for record in dataset:
-        if record['subscription_type'] == 'Free' and record['country'] == country[i]:
-            userNoChurnCountry = userNoChurnCountry + 1
-        if record['is_churned'] =='0' and record['subscription_type'] == 'Free' and record['country'] == country[i]:
-            mrrFree = mrrFree + 1
-    print (f"Total d'utilisateur du pays {country[i]} est de {userNoChurnCountry} ")
-    print(f"Utilisateur no churned avec abonnement Free du pays {country[i]} est de {mrrFree} ")
+
+    for j in range(len(typeAccount)) :
+
+        nbUser = 0
+        userCountry = 0
+
+
+        for record in dataset:
+
+
+            if record['subscription_type'] == typeAccount[j] and record['country'] == country[i]:
+            
+                userCountry = userCountry + 1
+            
+            
+            if record['is_churned'] =='0' and record['subscription_type'] == typeAccount[j] and record['country'] == country[i]:
+                
+                nbUser = nbUser + 1
+
+        print (f"Nombre d'utilisateur du pays {country[i]} ayant une compte {typeAccount[j]} est de {userCountry} ")
+        print(f"Utilisateur no churned avec abonnement {typeAccount[j]} du pays {country[i]} est de {nbUser} ")
+        print (f"Le MRR des abonnement {typeAccount[j]} du pays {country[i]} est de : {round(nbUser *PRICES[typeAccount[j]])}€")
+        print(" ")
+
+
+
