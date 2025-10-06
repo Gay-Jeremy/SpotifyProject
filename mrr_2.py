@@ -7,20 +7,20 @@ PRICES = {"Free": 0.0, "Premium": 9.99, "Family": 14.99,
 
 for record in dataset :
 
-    country = record['country']
-    typeAccount = record['subscription_type']
+    country = record['country']                                                         #création de variable qui prend la valeur du record[country]
+    typeAccount = record['subscription_type']                                           #création de variable qui prend la valeur du record[country]
 
-    if country not in nbUser :
-        nbUser[country] = {}
+    if country not in nbUser :  
+        nbUser[country] = {}                                                            #initialisation du sous dictionnaire country dans le dictionnaire nbUser                     
 
     user = 0
     if country in nbUser :
        
-        if typeAccount not in nbUser[country] :
-            nbUser[country][typeAccount] = 1
+        if typeAccount not in nbUser[country] :                      
+            nbUser[country][typeAccount] = 1                                            #initialisation du nombre d'utilisateur dans le sous dictionnaire country 
 
         elif typeAccount in nbUser[country] :
-            nbUser[country][typeAccount] = nbUser[country][typeAccount] + 1
+            nbUser[country][typeAccount] = nbUser[country][typeAccount] + 1             # incrémentation de 1 du nombre d'utilisateur du sous dictionnaire country
 print(nbUser)
 
 
