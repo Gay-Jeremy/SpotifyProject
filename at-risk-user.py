@@ -6,7 +6,7 @@ at_risk_user = 0
 
 for record in dataset :
     total = total + 1
-    if (record['skip_rate'] > '0.3' and record['listening_time'] < '100') or (record['subscription_type'] == 'Free'and record['offline_listening'] == '0' and record['ads_listened_per_week'] > '20')  :
+    if (float(record['skip_rate']) > 0.3 and int(record['listening_time']) < 100) or (record['subscription_type'] == 'Free'and int(record['offline_listening']) == 0 and int(record['ads_listened_per_week']) > 20)  :
         at_risk_user = at_risk_user + 1
 
 print(f"le nombre d'utilisateur à risque est {at_risk_user}")

@@ -20,7 +20,7 @@ for record in dataset:
 print(f"Total user: {total}")
 print(f"Churn users: {churned}")
 
-percentage= round((churned / total) * 100, 2)
+percentage = round((churned / total) * 100, 2)
 print(f"Churn rate : {percentage}%")
 
 for record in dataset:
