@@ -1,13 +1,17 @@
 from spotify import dataset
 
-nbUserAccount = {}
+# Initialisation dictionnaire 
+nbUserAccount = {}                                                     
 nbAdsAccount = {}
 
+# Boucle sur les record du dataset
 for record in dataset :
 
-    subscription_type = record['subscription_type']
+# Initialisation de varaiable 
+    subscription_type = record['subscription_type']         
     adsAccount = int(record['ads_listened_per_week'])
 
+# Condition
     if subscription_type not in nbUserAccount :
         nbUserAccount[subscription_type] = 0
 
@@ -16,12 +20,14 @@ for record in dataset :
 
     if subscription_type not in nbAdsAccount :
         nbAdsAccount[subscription_type] = adsAccount
+
     if subscription_type in nbAdsAccount : 
         nbAdsAccount[subscription_type] += adsAccount
 
 print (nbUserAccount)
 print (nbAdsAccount)
 
+# Boucle dans le dictionnaire nbUserAccount
 for key in nbUserAccount :
 
     if nbAdsAccount.get(key) != 0 :

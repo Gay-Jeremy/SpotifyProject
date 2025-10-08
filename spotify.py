@@ -16,4 +16,3 @@ def read_spotify_data(file_path, debug=True):
 
 dataset = read_spotify_data(file_path="spotify_churn_dataset.csv", debug=False)
 
-
