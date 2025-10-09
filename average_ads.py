@@ -20,8 +20,7 @@ for record in dataset :
 
     if subscription_type not in nbAdsAccount :
         nbAdsAccount[subscription_type] = adsAccount
-
-    if subscription_type in nbAdsAccount : 
+    else : 
         nbAdsAccount[subscription_type] += adsAccount
 
 print (nbUserAccount)

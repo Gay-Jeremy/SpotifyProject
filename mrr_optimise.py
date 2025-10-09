@@ -15,7 +15,7 @@ for record in dataset :
 
     user = 0
     if country in nbUser :
-       
+
         if typeAccount not in nbUser[country] and record["is_churned"] :                      
             nbUser[country][typeAccount] = 1                                            #initialisation du nombre d'utilisateur dans le sous dictionnaire country 
 
