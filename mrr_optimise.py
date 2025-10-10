@@ -23,15 +23,10 @@ for record in dataset :
             nbUser[country][typeAccount] = nbUser[country][typeAccount] + 1             # incrémentation de 1 du nombre d'utilisateur du sous dictionnaire country
 print(nbUser)
 
-revenu = {} 
-for country, subscriptions in nbUser.items(): 
-    
-    for subType, count in subscriptions.items(): 
-        total = 0 
-        price = PRICES[subType] 
-        total += price * count 
-        revenu[subType] = round(total, 2) 
-        print(f"{country} le revenu de {subType} est de {round(total,2)}€")
+for country, subscription in nbUser.items() :
+        for count in PRICES :
+            totalMRR = int(subscription[count]) * float(PRICES[count])
+            print(f'Pays: {country} Compte: {count} MRR: {round(totalMRR, 2)}€  ')
 
 
 
