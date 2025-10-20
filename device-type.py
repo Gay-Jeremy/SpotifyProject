@@ -13,6 +13,6 @@ for record in dataset :
 for pays, device in lstPaysDevice.items() :
         for dev, val in device.items() :
             maxDevice = max(device.values())
-        print(f"Pour le pays {pays} le device le plus utilisé est {dev}")
+        print(f"Pour le pays {pays} le device le plus utilisé est {dev} ({maxDevice})")
 
 
